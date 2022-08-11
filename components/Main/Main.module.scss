@@ -1,0 +1,32 @@
+@import "styles/fonts";
+@import "styles/mixins";
+@import "styles/variables";
+
+.main_section {
+  width: 100%;
+  margin: 3em auto 0;
+  box-sizing: border-box;
+
+  &_header {
+    @include flex;
+    max-width: 600px;
+    height: max-content;
+    margin: 2em auto;
+
+    span {
+      //   font-family: "Readex Pro";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 36px;
+      text-align: center;
+      color: #000000;
+    }
+  }
+
+  .list_assets {
+    @include border;
+    @include flex;
+    max-width: 1200px;
+    margin: 6em auto 0;
+  }
+}
