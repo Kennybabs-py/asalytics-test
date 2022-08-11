@@ -1,11 +1,14 @@
 import type { NextPage } from "next";
-import styles from "../styles/Home.module.css";
+import dynamic from "next/dynamic";
+
+const Header = dynamic(() => import("components/Header/Header"));
+// const Main = dynamic(()=> import('components/Main/Main'))
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
-      <h1>HELLO</h1>
-    </div>
+    <>
+      <Header />
+    </>
   );
 };
 
