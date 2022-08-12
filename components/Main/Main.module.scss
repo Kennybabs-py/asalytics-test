@@ -22,4 +22,11 @@
       color: #000000;
     }
   }
+
+  .list_assets {
+    max-width: 1300px;
+    margin: 6em auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }

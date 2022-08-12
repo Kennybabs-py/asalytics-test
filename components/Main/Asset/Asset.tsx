@@ -1,41 +1,39 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
+import { AssetProps } from "utils/types";
 import styles from "./Asset.module.scss";
 import logodefault from "assets/logo.png";
 
-interface AssetI {
-  assetID?: number | undefined;
-  available?: boolean | undefined;
-  logo?: string | any;
-  name?: string | undefined;
-}
+const [Fallback] = [
+  dynamic(() => import("components/Loading/Fallback"), { suspense: true }),
+];
 
-const Asset = ({ assets }: { assets: AssetI[] }) => {
+const Asset = (props: AssetProps) => {
+  const { asset } = props;
+
+  const { logo, name, available, assetID } = asset;
+
   return (
-    <div className={styles.list_assets}>
-      {assets.map((asset: AssetI) => {
-        const { assetID, available, logo, name } = asset;
-        return (
-          <div className={styles.asset_container} key={assetID}>
-            <Image
-              src={logo === null ? logodefault : logo}
-              alt="ASAlytics Logo"
-              width={30}
-              height={62.94}
-            />
-            <div className={styles.name__button}>
-              <span>{name}</span>
-              <button
-                style={{ backgroundColor: available ? "#6fd791" : "#BC3131" }}
-              >
-                {available ? "Available" : "Unavailable"}
-              </button>
-            </div>
-          </div>
-        );
-      })}
-    </div>
+    <Suspense fallback={<Fallback />}>
+      <div className={styles.asset_container}>
+        <Image
+          src={logo === null ? logodefault : logo}
+          alt={assetID}
+          width={30}
+          height={62.94}
+        />
+        <div className={styles.name__button}>
+          <span>{name}</span>
+          <button
+            style={{ backgroundColor: available ? "#6fd791" : "#BC3131" }}
+          >
+            {available ? "Available" : "Unavailable"}
+          </button>
+        </div>
+      </div>
+    </Suspense>
   );
 };
 

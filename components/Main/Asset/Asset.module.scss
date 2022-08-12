@@ -2,21 +2,13 @@
 @import "styles/mixins";
 @import "styles/variables";
 
-.list_assets {
-  @include flex;
-  max-width: 1300px;
-  margin: 6em auto 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px;
-}
-
 .asset_container {
-  @include border(#b7becc);
+  @include border($color-card-border);
   @include flex(center, space-around, column);
   width: 304px;
   height: 185px;
   border-radius: 10px;
+  margin: 10px;
 
   .name__button {
     @include flex(center, space-around, column);
@@ -37,7 +29,7 @@
     button {
       border: none;
       outline: none;
-      width: 68px;
+      width: 90px;
       height: 31px;
       background: #6fd791;
       border-radius: 8px;

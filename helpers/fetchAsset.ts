@@ -21,7 +21,7 @@ function fetchAsset() {
         }
       `
     );
-    console.log(results);
+
     return results;
   });
 }
