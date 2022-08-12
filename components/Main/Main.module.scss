@@ -22,11 +22,4 @@
       color: #000000;
     }
   }
-
-  .list_assets {
-    @include border;
-    @include flex;
-    max-width: 1200px;
-    margin: 6em auto 0;
-  }
 }

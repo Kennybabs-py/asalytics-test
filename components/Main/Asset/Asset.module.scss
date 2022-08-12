@@ -2,6 +2,15 @@
 @import "styles/mixins";
 @import "styles/variables";
 
+.list_assets {
+  @include flex;
+  max-width: 1300px;
+  margin: 6em auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
 .asset_container {
   @include border(#b7becc);
   @include flex(center, space-around, column);
@@ -10,9 +19,8 @@
   border-radius: 10px;
 
   .name__button {
-    @include border;
     @include flex(center, space-around, column);
-    height: 80px;
+    width: 90%;
     box-sizing: border-box;
 
     span {
@@ -23,6 +31,7 @@
       color: #000000;
       text-transform: capitalize;
       text-align: center;
+      margin: 0 auto 10px;
     }
 
     button {
