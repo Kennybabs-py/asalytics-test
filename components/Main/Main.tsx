@@ -9,7 +9,7 @@ import Asset from "./Asset/Asset";
 
 const [Loading] = [dynamic(() => import("components/Loading/Loading"))];
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(["asalist"], useFetchAsset);
@@ -35,8 +35,8 @@ const Main = () => {
       </div>
 
       <div className={styles.list_assets}>
-        {data?.map((asset: AssetI) => (
-          <Asset key={asset.assetID} asset={asset} />
+        {data?.map((asset: AssetI, index: number) => (
+          <Asset key={index} asset={asset} />
         ))}
       </div>
     </section>

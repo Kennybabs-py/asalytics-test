@@ -3,7 +3,7 @@ import { request, gql } from "graphql-request";
 
 const endpoint = "https://analytics-api.herokuapp.com/analytics";
 
-const AssetDocument = gql`
+const assets = gql`
   query {
     asalist {
       results {
@@ -20,10 +20,10 @@ function useFetchAsset() {
   return useQuery(["MyQuery"], async () => {
     const {
       asalist: { results },
-    } = await request(endpoint, AssetDocument);
+    } = await request(endpoint, assets);
 
     return results;
   });
 }
 
-export { useFetchAsset, endpoint, AssetDocument };
+export { useFetchAsset, request, endpoint, assets };
