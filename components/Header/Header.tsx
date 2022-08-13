@@ -5,7 +5,7 @@ import logo from "assets/logo.png";
 
 const Header = () => {
   return (
-    <header className={styles.header}>
+    <header className={styles.header} data-testid="header">
       <nav className={styles.nav}>
         <div className={styles.logo_container}>
           <Image src={logo} alt="name" width={30} height={57.39} />

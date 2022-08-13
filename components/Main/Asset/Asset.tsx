@@ -17,7 +17,7 @@ const Asset = (props: AssetProps) => {
 
   return (
     <Suspense fallback={<Fallback />}>
-      <div className={styles.asset_container}>
+      <div className={styles.asset_container} data-testid="assets">
         <Image
           src={logo === null ? logodefault : logo}
           alt={assetID}
